@@ -20,26 +20,18 @@
         
 			<li><a href="#nuevo">Nuevo Reporte</a></li>
             <li><a href="#consulta">Consulta Reporte</a></li>
-			
+			<a href="#" id="Salir" data-icon="delete" data-rel="back" data-role="button" data-theme="a">Salir</a>
 		</ul>		
 	</div>
+    
+    
 </div>
 
-<div data-role="page" id="consulta">
-	<div data-role="header">
-		<h1>Página dos</h1>
-	</div>
-	<div data-role="content">	
-		Contenido		
-	</div>
-	<div data-role="footer">
-		<h4>Pie de página</h4>
-	</div>
-</div>
+
 
 <div data-role="page" id="nuevo">
 	<div data-role="header">
-    <a data-role="button" data-rel="back" data-direction="reverse" data-theme="b">Atrás</a>	
+    <a data-direction="reverse"  data-rel="back" data-role="button" data-theme="b">Atrás</a>	
 		<h1>Registro</h1>
 	</div>
 	<div data-role="content">	
@@ -60,7 +52,7 @@
 
     <li><a href="#" id="regFoto">Tomar Foto</a></li>
     </ul>
-    <a href="#" data-role="button" id="regEnviar" data-theme="a">Registrar</a>
+    <a href="#" id="regEnviar" data-icon="check" data-role="button" data-theme="a">Registrar</a>
 
 	</div>
 	
@@ -72,7 +64,7 @@
 	</div>
 	<div data-role="content" style="text-align:justify;">	
       <input type="number" id="numRepor" placeholder="Número de Reporte" />
-		<a href="#" data-role="button" id="consultar" data-theme="a">Consultar</a>
+		<a href="#" data-role="button" id="consultar" data-theme="a" data-icon="search">Consultar</a>
 	</div>
 </div>
 
@@ -84,21 +76,21 @@
 		<h1>Reporte</h1>
 	</div>
 	<div data-role="content">	
-    <ul data-role="listview" data-inset="true" data-dividertheme="a">
-    <li data-role="list-divider">Resultado</li>
-    <li><input type="text" id="resuNom" placeholder="Nombre" title="Requerido" required/></li>
-    <li><input type="datetime" id="resuFecha" placeholder="Fecha" title="Requerido" required/></li>
-    <li><input type="text" id="resuTipo" placeholder="Tipo" /></li>
-        <li><input type="text" id="resuDescri" placeholder="Descripcion" title="Requerido" required/></li>
-        <li><input type="text" id="resuResu" placeholder="Resumen" title="Requerido" required /></li>
+    <ul data-role="listview" data-inset="true" data-dividertheme="b">
+    <li data-role="list-divider" >Resultado</li>
+   <li> <label id="resuRepor"></label></li> 
+   <li> <label id="resuNom"></label></li>
+   <li> <label id="resuFecha"></label></li>
+   <li> <label id="resuTipo"></label></li>
+   <li> <label id="resuDescri"></label></li>
+   <li> <label id="resuResu"></label></li>
      <!--   <li> <textarea rows="2" id="resu" ></textarea></li>-->
-                <li><input type="text" id="resuAnte" placeholder="Antecedentes" title="Requerido" required /></li>
-                        <li><input type="text" id="resuSecu" placeholder="Secuencia" title="Requerido" required /></li>
-        <li><input type="text" id="resuAn" placeholder="Análisis" title="Requerido" required /></li>
-        <li><input type="text" id="resuMedi" placeholder="Medidas" title="Requerido" required /></li>        
-        <li><input type="text" id="resuCon" placeholder="Conclusión" title="Requerido" required /></li>
-
-   <!-- <li><a href="#" id="regFoto">Tomar Foto</a></li> -->
+   <li> <label id="resuAnte"></label>  </li>
+   <li> <label id="resuSecu"></label></li>
+   <li> <label id="resuAn"></label></li>
+   <li> <label id="resuMedi"></label></li>
+   <li> <label id="resuCon"></label></li>
+   <li><a href="#" id="resuFoto">Ver Foto</a></li> 
     </ul>
 	</div>	
 </div>

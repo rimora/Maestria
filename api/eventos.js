@@ -1,8 +1,8 @@
 // EVENTOS
 $(document).ready(function() {
-	//document.addEventListener("deviceready",function(){
+	document.addEventListener("deviceready",function(){
 		
-    $('#consultar').click(function(){
+    $('#consultar').tap(function(){
 		//window.location.href='#login';
 		
 		
@@ -16,16 +16,34 @@ $(document).ready(function() {
 	.done(function(respuestaServer) {
 		
 		//alert(respuestaServer.mensaje + "\nGenerado en: " + respuestaServer.hora + "\n" +respuestaServer.generador)		
-		alert(respuestaServer.Asegurador)
+		//alert(respuestaServer.Numreporte)
 		
 		//if(respuestaServer.validacion == "ok"){
-			if(respuestaServer.Asegurador == "Ricardo Morales"){
+			if(respuestaServer.Numreporte >0){
 		  
 		 	/// si la validacion es correcta, muestra la pantalla "home"
 			$.mobile.changePage("#resultado")
-		  document.getElementById('resuNom').value=respuestaServer.Asegurador;
+		  //document.getElementById('resuNombre').text(respuestaServer.Asegurador);
+             $("#resuRepor").text("Reporte:"+respuestaServer.Numreporte);
+			 $("#resuNom").text("Asegurador:"+respuestaServer.Asegurador);
+			 $("#resuFecha").text("Fecha:"+respuestaServer.Fecha);
+			 $("#resuTipo").text("Tipo:"+respuestaServer.Tipo);
+			 $("#resuDescri").text("Descripción:"+respuestaServer.Descripcion);
+			 $("#resuResu").text("Resumen:"+respuestaServer.Resumen);
+			 $("#resuAnte").text("Antecedentes:"+respuestaServer.Antecedente);
+			 $("#resuSecu").text("Secuencia:"+respuestaServer.Secuencia);
+			 $("#resuAn").text("Análisis:"+respuestaServer.Analisis);
+			 $("#resuMedi").text("Medidas:"+respuestaServer.Mcorrectiva);
+			 $("#resuCon").text("Conclusión:"+respuestaServer.Conclusion);
+			
+			 
+			 
+			 
 		}else{
 		  
+		  //alert("El reporte "+numreporte+" no existe, inténtelo de nuevo")
+		  navigator.notification.alert("El reporte "+numreporte+" no existe, inténtelo de nuevo",null,"Error de Registro","Aceptar");
+
 		  /// ejecutar una conducta cuando la validacion falla
 		}
 		
@@ -57,7 +75,7 @@ $(document).ready(function() {
 		}
 	*/		
 	});
-	//},false);
+	},false);
 	
 });
 
