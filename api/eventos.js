@@ -1,8 +1,8 @@
 // EVENTOS
 $(document).ready(function() {
-	document.addEventListener("deviceready",function(){
+	//document.addEventListener("deviceready",function(){
 		
-    $('#consultar').tap(function(){
+    $('#consultar').click(function(){
 		//window.location.href='#login';
 		
 		
@@ -41,8 +41,8 @@ $(document).ready(function() {
 			 
 		}else{
 		  
-		  //alert("El reporte "+numreporte+" no existe, inténtelo de nuevo")
-		  navigator.notification.alert("El reporte "+numreporte+" no existe, inténtelo de nuevo",null,"Error de Registro","Aceptar");
+		  alert("El reporte "+numreporte+" no existe, inténtelo de nuevo")
+		 // navigator.notification.alert("El reporte "+numreporte+" no existe, inténtelo de nuevo",null,"Error de Registro","Aceptar");
 
 		  /// ejecutar una conducta cuando la validacion falla
 		}
@@ -75,7 +75,7 @@ $(document).ready(function() {
 		}
 	*/		
 	});
-	},false);
+	//},false);
 	
 });
 
