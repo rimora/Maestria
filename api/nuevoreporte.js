@@ -13,9 +13,7 @@ $(document).ready(function() {
         }  
 
 		
-		
-		var nombre = $("#regNom").val();
-		var fecha =	 $("#regFecha").val();
+		var nombre = $("#regNom").val();		
 		var tipo =	 $("#regTipo").val();
 		var descripcion =	 $("#regDescri").val();
 		var resumen =	 $("#regResu").val();
@@ -32,7 +30,7 @@ $(document).ready(function() {
   	//archivoValidacion = "http://revolucion.mobi/ejemplos/phonegap/envioFormulario/validacion_de_datos.php?jsoncallback=?"
 	archivoValidacion ="http://aplicacion.netai.net/nuevo.php?jsoncallback=?"
 
-	$.getJSON(archivoValidacion, {nombre:nombre,fecha:fecha,tipo:tipo,descripcion:descripcion,resumen:resumen,antecedente:antecedente,secuencia:secuencia,analisis:analisis,medida:medida,conclusion:conclusion})
+	$.getJSON(archivoValidacion, {nombre:nombre,tipo:tipo,descripcion:descripcion,resumen:resumen,antecedente:antecedente,secuencia:secuencia,analisis:analisis,medida:medida,conclusion:conclusion})
 	.done(function(respuestaServer) {
 		
 		//alert(respuestaServer.mensaje + "\nGenerado en: " + respuestaServer.hora + "\n" +respuestaServer.generador)		
