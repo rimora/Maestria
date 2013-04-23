@@ -1,60 +1,64 @@
-// EVENTOS
+//insertar reporte
+
 $(document).ready(function() {
 	//document.addEventListener("deviceready",function(){
-
-
-
-		
-    $('#consultar').click(function(){
+		 
+//	$("#regNom").val()='';
+    $('#regEnviar').click(function(){
 		//window.location.href='#login';
+			
+		if($("#regTipo").val() < 1 || $("#regTipo").val() > 2) {  
+        alert("El Tipo debe ser 1 o 2 ");  
+        return false;  
+        }  
+
 		
 		
-		var numreporte = $("#numRepor").val()
-//	var datosPassword = $("#regEmail").val()
+		var nombre = $("#regNom").val();
+		var fecha =	 $("#regFecha").val();
+		var tipo =	 $("#regTipo").val();
+		var descripcion =	 $("#regDescri").val();
+		var resumen =	 $("#regResu").val();
+		var antecedente =	 $("#regAnte").val();
+		var secuencia =	 $("#regSecu").val();
+		var analisis =	 $("#regAn").val();
+		var medida =	 $("#regMedi").val();
+		var conclusion =	 $("#regCon").val();
+		 
+	/*	if (nombre!='' && fecha!='' && tipo!='' && descripcion!='' && resumen!='' && antecedente!='' && secuencia!=''         &&   analisis!='' && medida!='' && conclusion!=''){*/
+		   
+     //	var datosPassword = $("#regEmail").val()
 	
   	//archivoValidacion = "http://revolucion.mobi/ejemplos/phonegap/envioFormulario/validacion_de_datos.php?jsoncallback=?"
-	archivoValidacion ="http://aplicacion.netai.net/index.php?jsoncallback=?"
+	archivoValidacion ="http://aplicacion.netai.net/nuevo.php?jsoncallback=?"
 
-	$.getJSON( archivoValidacion, {numRepor:numreporte})
+	$.getJSON(archivoValidacion, {nombre:nombre,fecha:fecha,tipo:tipo,descripcion:descripcion,resumen:resumen,antecedente:antecedente,secuencia:secuencia,analisis:analisis,medida:medida,conclusion:conclusion})
 	.done(function(respuestaServer) {
 		
 		//alert(respuestaServer.mensaje + "\nGenerado en: " + respuestaServer.hora + "\n" +respuestaServer.generador)		
 		//alert(respuestaServer.Numreporte)
-		
+		//alert(respuestaServer.resultado)
 		//if(respuestaServer.validacion == "ok"){
-			if(respuestaServer.Numreporte >0){
+			if(respuestaServer.resultado >0){
 		  
 		 	/// si la validacion es correcta, muestra la pantalla "home"
-			$.mobile.changePage("#resultado")
+			alert("El reporte generado es:"+respuestaServer.resultado)
+			$.mobile.changePage("#page")
 		  //document.getElementById('resuNombre').text(respuestaServer.Asegurador);
-             $("#resuRepor").text("Reporte:"+respuestaServer.Numreporte);
-			 $("#resuNom").text("Asegurador:"+respuestaServer.Asegurador);
-			 $("#resuFecha").text("Fecha:"+respuestaServer.Fecha);
-			 if (respuestaServer.Tipo=1) {
-			 $("#resuTipo").text("Tipo: Temporal");} //respuestaServer.Tipo
-			 else {$("#resuTipo").text("Tipo: Definitivo");}
-			 $("#resuDescri").text("Descripción:"+respuestaServer.Descripcion);
-			 $("#resuResu").text("Resumen:"+respuestaServer.Resumen);
-			 $("#resuAnte").text("Antecedentes:"+respuestaServer.Antecedente);
-			 $("#resuSecu").text("Secuencia:"+respuestaServer.Secuencia);
-			 $("#resuAn").text("Análisis:"+respuestaServer.Analisis);
-			 $("#resuMedi").text("Medidas:"+respuestaServer.Mcorrectiva);
-			 $("#resuCon").text("Conclusión:"+respuestaServer.Conclusion);
-			
-			 
-			 
-			 
-		}else{
+            
+     		}else{
 		  
-		  alert("El reporte "+numreporte+" no existe, inténtelo de nuevo")
+        		  alert("El reporte no se generó")
 		 // navigator.notification.alert("El reporte "+numreporte+" no existe, inténtelo de nuevo",null,"Error de Registro","Aceptar");
 
 		  /// ejecutar una conducta cuando la validacion falla
-		}
+		    }
 		
-	
-		
-	});
+	});//.getJson
+/*	}//if validar campos obligatorios
+	else{
+	alert("Todos los campos son obligatorios");	
+	}*/
 		/*
 		
 		
